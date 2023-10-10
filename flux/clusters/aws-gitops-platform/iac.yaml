@@ -11,6 +11,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: bootstrap-repo
-  path: ./flux/pulumi-operator/controllers
+  path: ./flux/pulumi-operator/controller
   prune: true
   wait: true
