@@ -5,4 +5,5 @@ metadata:
   description: All the components in the pulumi-gitops-repo
 spec:
   targets:
-  - ./flux/infrastructure/backstage-catalog-info.yaml
+  - ./flux/infrastructure/infra-components.yaml
+  - ./flux/pulumi-operator/iac-components.yaml
