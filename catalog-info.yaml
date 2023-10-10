@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: pulumi-gitops-repo-components
+  description: All the components in the pulumi-gitops-repo
+spec:
+  targets:
+  - ./flux/infrastructure/backstage-catalog-info.yaml

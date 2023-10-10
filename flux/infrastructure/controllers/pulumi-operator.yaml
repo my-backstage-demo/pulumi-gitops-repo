@@ -1,0 +1,58 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  labels:
+    backstage.io/kubernetes-id: gitops-cluster
+  name: pulumi-oci-repo
+  namespace: flux-system
+spec:
+  interval: 1m
+  provider: generic
+  timeout: 60s
+  type: oci
+  url: oci://ghcr.io/pulumi/helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  labels:
+    backstage.io/kubernetes-id: gitops-cluster
+  name: pulumi-operator-helm-release
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: pulumi-kubernetes-operator
+      interval: 1m
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: pulumi-oci-repo
+        namespace: flux-system
+      version: 0.2.0
+  install:
+    crds: CreateReplace
+  interval: 1m
+  postRenderers:
+  - kustomize:
+      patchesStrategicMerge:
+      - apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          labels:
+            backstage.io/kubernetes-id: gitops-cluster
+          name: pulumi-operator
+        spec:
+          selector:
+            matchLabels:
+              backstage.io/kubernetes-id: gitops-cluster
+          template:
+            metadata:
+              labels:
+                backstage.io/kubernetes-id: gitops-cluster
+  targetNamespace: pulumi-operator
+  values:
+    extraEnv:
+    - name: PULUMI_ACCESS_TOKEN
+      value: changeme
+    fullnameOverride: pulumi-operator
