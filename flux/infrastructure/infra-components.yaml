@@ -17,29 +17,6 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: pulumi-operator
-  description: Pulumi operator
-  annotations:
-    backstage.io/kubernetes-namespace: pulumi-operator
-    backstage.io/kubernetes-id: gitops-cluster
-spec:
-  owner: infrastructure
-  domain: gitops-platform
-  type: service
-  lifecycle: experimental
-  system: gitops-system
----
-apiVersion: backstage.io/v1alpha1
-kind: Domain
-metadata:
-  name: gitops-platform
-  description: GitOps Platform
-spec:
-  owner: infrastructure
----
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
   name: external-secrets
   description: External Secrets operator
   annotations:
