@@ -54,5 +54,8 @@ spec:
   values:
     extraEnv:
     - name: PULUMI_ACCESS_TOKEN
-      value: changeme
+      valueFrom:
+        secretKeyRef:
+          key: pulumi-access-token
+          name: pulumi-access-token
     fullnameOverride: pulumi-operator
