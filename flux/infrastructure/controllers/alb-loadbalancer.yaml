@@ -30,7 +30,7 @@ spec:
       version: 1.6.1
   install:
     crds: CreateReplace
-    createNamespace: false
+    createNamespace: true
   interval: 1m
   targetNamespace: aws-lb-controller
   values:
