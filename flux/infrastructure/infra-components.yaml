@@ -28,3 +28,18 @@ spec:
   type: service
   lifecycle: experimental
   system: gitops-system
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aws-load-balancer-controller
+  description: AWS Load Balancer Controller
+  annotations:
+    backstage.io/kubernetes-namespace: aws-lb-controller
+    backstage.io/kubernetes-id: gitops-cluster
+spec:
+  owner: infrastructure
+  domain: gitops-platform
+  type: service
+  lifecycle: experimental
+  system: gitops-system
