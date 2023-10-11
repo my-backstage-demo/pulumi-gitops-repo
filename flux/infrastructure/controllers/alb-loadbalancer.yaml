@@ -21,13 +21,13 @@ metadata:
 spec:
   chart:
     spec:
-      chart: external-secrets
+      chart: aws-load-balancer-controller
       interval: 1m
       sourceRef:
         kind: HelmRepository
-        name: external-secrets-repo
+        name: aws-load-balancer-controller-repo
         namespace: flux-system
-      version: 1.5.3
+      version: 1.6.1
   install:
     crds: CreateReplace
     createNamespace: false
