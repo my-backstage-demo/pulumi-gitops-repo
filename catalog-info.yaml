@@ -6,4 +6,4 @@ metadata:
 spec:
   targets:
   - ./flux/infrastructure/infra-components.yaml
-  - ./flux/pulumi-operator/iac-components.yaml
+  - ./flux/iac/iac-components.yaml

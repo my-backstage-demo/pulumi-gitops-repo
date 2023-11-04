@@ -41,7 +41,7 @@ spec:
         metadata:
           labels:
             backstage.io/kubernetes-id: gitops-cluster
-          name: pulumi-operator
+          name: iac
         spec:
           selector:
             matchLabels:
@@ -50,7 +50,7 @@ spec:
             metadata:
               labels:
                 backstage.io/kubernetes-id: gitops-cluster
-  targetNamespace: pulumi-operator
+  targetNamespace: iac
   values:
     extraEnv:
     - name: PULUMI_ACCESS_TOKEN
@@ -58,7 +58,7 @@ spec:
         secretKeyRef:
           key: pulumi-access-token
           name: pulumi-access-token
-    fullnameOverride: pulumi-operator
+    fullnameOverride: iac
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
@@ -80,7 +80,7 @@ metadata:
   labels:
     backstage.io/kubernetes-id: gitops-cluster
   name: pulumi-backstage-flux-gitops-aws-kustomization
-  namespace: pulumi-operator
+  namespace: iac
 spec:
   force: false
   interval: 1m
@@ -90,4 +90,4 @@ spec:
     kind: GitRepository
     name: pulumi-backstage-flux-gitops-aws-git-repo
     namespace: flux-system
-  targetNamespace: pulumi-operator
+  targetNamespace: iac
