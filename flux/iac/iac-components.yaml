@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pulumi-operator
+  description: Pulumi operator
+  annotations:
+    backstage.io/kubernetes-namespace: iac
+    backstage.io/kubernetes-id: gitops-cluster
+spec:
+  owner: infrastructure
+  domain: gitops-platform
+  type: service
+  lifecycle: experimental
+  system: gitops-system
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: crossplane
+  description: Crossplane
+  annotations:
+    backstage.io/kubernetes-namespace: iac
+    backstage.io/kubernetes-id: gitops-cluster
+spec:
+  owner: infrastructure
+  domain: gitops-platform
+  type: service
+  lifecycle: experimental
+  system: gitops-system
