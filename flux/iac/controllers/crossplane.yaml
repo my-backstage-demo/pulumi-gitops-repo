@@ -31,7 +31,7 @@ spec:
       version: 1.14.0
   install:
     crds: CreateReplace
-  interval: 1
+  interval: 1m
   targetNamespace: crossplane-system
   values:
     customLabels:
