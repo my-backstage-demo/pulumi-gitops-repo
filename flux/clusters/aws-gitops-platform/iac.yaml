@@ -11,7 +11,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: bootstrap-repo
-  path: ./flux/iac/controller
+  path: ./flux/iac/controllers
   prune: true
   wait: true
 ---
@@ -27,6 +27,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: bootstrap-repo
-  path: ./flux/iac/config
+  path: ./flux/iac/configs
   prune: true
   wait: true
