@@ -27,7 +27,7 @@ spec:
         kind: HelmRepository
         name: alb-controller-repo
         namespace: flux-system
-      version: 1.6.1
+      version: 1.7.1
   install:
     crds: CreateReplace
     createNamespace: true
